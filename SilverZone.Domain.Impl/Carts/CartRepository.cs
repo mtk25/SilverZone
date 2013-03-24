@@ -24,12 +24,12 @@ namespace SilverZone.Domain.Impl.Carts
                     {
                         cart.Id = Guid.NewGuid();
 
-                        //add
+                        // add
                         dataCart = new Data.ShoppingCart();
                     }
                     else
                     {
-                        //update 
+                        // update 
                         dataCart = ctx.ShoppingCarts.FirstOrDefault(x => x.Id == cart.Id);
 
                         if (dataCart == null)
