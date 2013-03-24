@@ -24,7 +24,7 @@ namespace SilverZone.Domain.Impl.Carts
                     {
                         cart.Id = Guid.NewGuid();
 
-                        // add
+                        //  add
                         dataCart = new Data.ShoppingCart();
                     }
                     else

@@ -20,7 +20,6 @@ namespace SilverZone.Domain.Impl.Orders
         {
             dataOrder.Id = order.Id;
             dataOrder.UserId = order.UserId;
-
         }
 
     }

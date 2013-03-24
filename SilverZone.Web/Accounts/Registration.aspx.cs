@@ -25,6 +25,7 @@ namespace SilverZone.Web.Accounts
             var user = GetUser();
 
             // Save user information 
+            // TODO replace with Context.Users.Repository.Save
             Result result = _userRepository.Save(user);
             if (!result.HasErrors)
             {

@@ -1,5 +1,5 @@
 ﻿using System;
-using SilverZone.Domain.Impl.Products;
+using SilverZone.Web.Framework.Contexts;
 
 namespace SilverZone.Web.Products
 {
@@ -7,7 +7,7 @@ namespace SilverZone.Web.Products
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            new ProductRepository().Get();
+            DomainContext.Products.Repository.Get();
         }
     }
 }
