@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SilverZoneModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="SilverZoneModelStoreContainer">
+          <EntitySet Name="OrderItems" EntityType="SilverZoneModel.Store.OrderItems" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Orders" EntityType="SilverZoneModel.Store.Orders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Products" EntityType="SilverZoneModel.Store.Products" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ShoppingCartItems" EntityType="SilverZoneModel.Store.ShoppingCartItems" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ShoppingCarts" EntityType="SilverZoneModel.Store.ShoppingCarts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="SilverZoneModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_OrderItems_Orders" Association="SilverZoneModel.Store.FK_OrderItems_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItems_Products" Association="SilverZoneModel.Store.FK_OrderItems_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Users" Association="SilverZoneModel.Store.FK_Orders_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShoppingCartItems_Products" Association="SilverZoneModel.Store.FK_ShoppingCartItems_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ShoppingCartItems" EntitySet="ShoppingCartItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShoppingCartItems_ShoppingCarts" Association="SilverZoneModel.Store.FK_ShoppingCartItems_ShoppingCarts">
+            <End Role="ShoppingCarts" EntitySet="ShoppingCarts" />
+            <End Role="ShoppingCartItems" EntitySet="ShoppingCartItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShoppingCarts_Users" Association="SilverZoneModel.Store.FK_ShoppingCarts_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ShoppingCarts" EntitySet="ShoppingCarts" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="OrderItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OrderId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProductId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Price" Type="decimal" Nullable="false" Scale="2" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SKU" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Type" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Weight" Type="float" Nullable="false" />
+          <Property Name="Price" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="InStock" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShoppingCartItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ShoppingCartId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProductId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShoppingCarts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <Association Name="FK_OrderItems_Orders">
+          <End Role="Orders" Type="SilverZoneModel.Store.Orders" Multiplicity="1" />
+          <End Role="OrderItems" Type="SilverZoneModel.Store.OrderItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItems_Products">
+          <End Role="Products" Type="SilverZoneModel.Store.Products" Multiplicity="1" />
+          <End Role="OrderItems" Type="SilverZoneModel.Store.OrderItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Users">
+          <End Role="Users" Type="SilverZoneModel.Store.Users" Multiplicity="1" />
+          <End Role="Orders" Type="SilverZoneModel.Store.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShoppingCartItems_Products">
+          <End Role="Products" Type="SilverZoneModel.Store.Products" Multiplicity="1" />
+          <End Role="ShoppingCartItems" Type="SilverZoneModel.Store.ShoppingCartItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShoppingCartItems">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShoppingCartItems_ShoppingCarts">
+          <End Role="ShoppingCarts" Type="SilverZoneModel.Store.ShoppingCarts" Multiplicity="1" />
+          <End Role="ShoppingCartItems" Type="SilverZoneModel.Store.ShoppingCartItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShoppingCarts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShoppingCartItems">
+              <PropertyRef Name="ShoppingCartId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShoppingCarts_Users">
+          <End Role="Users" Type="SilverZoneModel.Store.Users" Multiplicity="1" />
+          <End Role="ShoppingCarts" Type="SilverZoneModel.Store.ShoppingCarts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShoppingCarts">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SilverZoneModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SilverZoneEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="OrderItems" EntityType="SilverZoneModel.OrderItem" />
+          <EntitySet Name="Orders" EntityType="SilverZoneModel.Order" />
+          <EntitySet Name="Products" EntityType="SilverZoneModel.Product" />
+          <EntitySet Name="ShoppingCartItems" EntityType="SilverZoneModel.ShoppingCartItem" />
+          <EntitySet Name="ShoppingCarts" EntityType="SilverZoneModel.ShoppingCart" />
+          <AssociationSet Name="FK_OrderItems_Orders" Association="SilverZoneModel.FK_OrderItems_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItems_Products" Association="SilverZoneModel.FK_OrderItems_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShoppingCartItems_Products" Association="SilverZoneModel.FK_ShoppingCartItems_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ShoppingCartItems" EntitySet="ShoppingCartItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShoppingCartItems_ShoppingCarts" Association="SilverZoneModel.FK_ShoppingCartItems_ShoppingCarts">
+            <End Role="ShoppingCarts" EntitySet="ShoppingCarts" />
+            <End Role="ShoppingCartItems" EntitySet="ShoppingCartItems" />
+          </AssociationSet>
+          <EntitySet Name="Users" EntityType="SilverZoneModel.User" />
+          <AssociationSet Name="FK_Orders_Users" Association="SilverZoneModel.FK_Orders_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShoppingCarts_Users" Association="SilverZoneModel.FK_ShoppingCarts_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ShoppingCart" EntitySet="ShoppingCarts" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="OrderId" Type="Guid" Nullable="false" />
+          <Property Name="ProductId" Type="Guid" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <NavigationProperty Name="Order" Relationship="SilverZoneModel.FK_OrderItems_Orders" FromRole="OrderItems" ToRole="Orders" />
+          <NavigationProperty Name="Product" Relationship="SilverZoneModel.FK_OrderItems_Products" FromRole="OrderItems" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="OrderItems" Relationship="SilverZoneModel.FK_OrderItems_Orders" FromRole="Orders" ToRole="OrderItems" />
+          <NavigationProperty Name="User" Relationship="SilverZoneModel.FK_Orders_Users" FromRole="Order" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="SKU" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Weight" Type="Double" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="InStock" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="OrderItems" Relationship="SilverZoneModel.FK_OrderItems_Products" FromRole="Products" ToRole="OrderItems" />
+          <NavigationProperty Name="ShoppingCartItems" Relationship="SilverZoneModel.FK_ShoppingCartItems_Products" FromRole="Products" ToRole="ShoppingCartItems" />
+        </EntityType>
+        <EntityType Name="ShoppingCartItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ShoppingCartId" Type="Guid" Nullable="false" />
+          <Property Name="ProductId" Type="Guid" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="SilverZoneModel.FK_ShoppingCartItems_Products" FromRole="ShoppingCartItems" ToRole="Products" />
+          <NavigationProperty Name="ShoppingCart" Relationship="SilverZoneModel.FK_ShoppingCartItems_ShoppingCarts" FromRole="ShoppingCartItems" ToRole="ShoppingCarts" />
+        </EntityType>
+        <EntityType Name="ShoppingCart">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="ShoppingCartItems" Relationship="SilverZoneModel.FK_ShoppingCartItems_ShoppingCarts" FromRole="ShoppingCarts" ToRole="ShoppingCartItems" />
+          <NavigationProperty Name="User" Relationship="SilverZoneModel.FK_ShoppingCarts_Users" FromRole="ShoppingCart" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_OrderItems_Orders">
+          <End Role="Orders" Type="SilverZoneModel.Order" Multiplicity="1" />
+          <End Role="OrderItems" Type="SilverZoneModel.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItems_Products">
+          <End Role="Products" Type="SilverZoneModel.Product" Multiplicity="1" />
+          <End Role="OrderItems" Type="SilverZoneModel.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShoppingCartItems_Products">
+          <End Role="Products" Type="SilverZoneModel.Product" Multiplicity="1" />
+          <End Role="ShoppingCartItems" Type="SilverZoneModel.ShoppingCartItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShoppingCartItems">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShoppingCartItems_ShoppingCarts">
+          <End Role="ShoppingCarts" Type="SilverZoneModel.ShoppingCart" Multiplicity="1" />
+          <End Role="ShoppingCartItems" Type="SilverZoneModel.ShoppingCartItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShoppingCarts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShoppingCartItems">
+              <PropertyRef Name="ShoppingCartId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Orders" Relationship="SilverZoneModel.FK_Orders_Users" FromRole="User" ToRole="Order" />
+          <NavigationProperty Name="ShoppingCarts" Relationship="SilverZoneModel.FK_ShoppingCarts_Users" FromRole="User" ToRole="ShoppingCart" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Orders_Users">
+          <End Type="SilverZoneModel.User" Role="User" Multiplicity="1" />
+          <End Type="SilverZoneModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShoppingCarts_Users">
+          <End Type="SilverZoneModel.User" Role="User" Multiplicity="1" />
+          <End Type="SilverZoneModel.ShoppingCart" Role="ShoppingCart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShoppingCart">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SilverZoneModelStoreContainer" CdmEntityContainer="SilverZoneEntities">
+          <EntitySetMapping Name="OrderItems">
+            <EntityTypeMapping TypeName="SilverZoneModel.OrderItem">
+              <MappingFragment StoreEntitySet="OrderItems">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="SilverZoneModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="SilverZoneModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="InStock" ColumnName="InStock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShoppingCartItems">
+            <EntityTypeMapping TypeName="SilverZoneModel.ShoppingCartItem">
+              <MappingFragment StoreEntitySet="ShoppingCartItems">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ShoppingCartId" ColumnName="ShoppingCartId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShoppingCarts">
+            <EntityTypeMapping TypeName="SilverZoneModel.ShoppingCart">
+              <MappingFragment StoreEntitySet="ShoppingCarts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="SilverZoneModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
