@@ -24,9 +24,9 @@ namespace SilverZone.Domain.Impl.Data
         public string SKU { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
-        public double Weight { get; set; }
         public decimal Price { get; set; }
         public bool InStock { get; set; }
+        public int Grams { get; set; }
     
         public virtual ICollection<OrderItem> OrderItems { get; set; }
         public virtual ICollection<ShoppingCartItem> ShoppingCartItems { get; set; }

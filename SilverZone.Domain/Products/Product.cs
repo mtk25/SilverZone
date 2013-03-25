@@ -12,7 +12,10 @@ namespace SilverZone.Domain.Products
 
         public string Type { get; set; }
 
-        public double Weight { get; set; }
+        /// <summary>
+        /// Weight is in grams
+        /// </summary>
+        public int Weight { get; set; }
 
         public decimal Price { get; set; }
 

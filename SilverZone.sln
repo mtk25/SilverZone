@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SilverZone.Domain", "Silver
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SilverZone.Domain.Impl", "SilverZone.Domain.Impl\SilverZone.Domain.Impl.csproj", "{E06B168E-F40D-441A-98C9-194EFA009A5F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{F7FFD24B-FF7C-452E-B5CA-84A53F0B9A87}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BF2294BD-FE69-461D-BBB0-666529C29989} = {F7FFD24B-FF7C-452E-B5CA-84A53F0B9A87}
+		{E06B168E-F40D-441A-98C9-194EFA009A5F} = {F7FFD24B-FF7C-452E-B5CA-84A53F0B9A87}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35

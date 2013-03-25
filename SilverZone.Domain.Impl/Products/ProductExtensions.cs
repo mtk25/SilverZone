@@ -13,7 +13,7 @@ namespace SilverZone.Domain.Impl.Products
             product.Price = dbProduct.Price;
             product.SKU = dbProduct.SKU;
             product.Type = dbProduct.Type;
-            product.Weight = dbProduct.Weight;
+            product.Weight = dbProduct.Grams;
 
             return product;
         }

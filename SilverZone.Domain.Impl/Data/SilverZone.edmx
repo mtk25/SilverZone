@@ -62,7 +62,7 @@
           <Property Name="SKU" Type="varchar" Nullable="false" MaxLength="10" />
           <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Type" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="Weight" Type="float" Nullable="false" />
+          <Property Name="Grams" Type="int" Nullable="false" />
           <Property Name="Price" Type="decimal" Nullable="false" Scale="2" />
           <Property Name="InStock" Type="bit" Nullable="false" />
         </EntityType>
@@ -229,11 +229,11 @@
           <Property Name="SKU" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="Type" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Weight" Type="Double" Nullable="false" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <Property Name="InStock" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="OrderItems" Relationship="SilverZoneModel.FK_OrderItems_Products" FromRole="Products" ToRole="OrderItems" />
           <NavigationProperty Name="ShoppingCartItems" Relationship="SilverZoneModel.FK_ShoppingCartItems_Products" FromRole="Products" ToRole="ShoppingCartItems" />
+          <Property Type="Int32" Name="Grams" Nullable="false" />
         </EntityType>
         <EntityType Name="ShoppingCartItem">
           <Key>
@@ -367,11 +367,11 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="SilverZoneModel.Product">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Grams" ColumnName="Grams" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SKU" ColumnName="SKU" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Weight" ColumnName="Weight" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="InStock" ColumnName="InStock" />
               </MappingFragment>

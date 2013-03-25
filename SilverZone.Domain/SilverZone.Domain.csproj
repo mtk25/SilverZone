@@ -41,18 +41,24 @@
   <ItemGroup>
     <Compile Include="Carts\Cart.cs" />
     <Compile Include="Carts\CartItem.cs" />
+    <Compile Include="Carts\CartsContainer.cs" />
     <Compile Include="Carts\ICartRepository.cs" />
+    <Compile Include="Carts\ICartsContainer.cs" />
     <Compile Include="Orders\IOrderRepository.cs" />
+    <Compile Include="Orders\IOrdersContainer.cs" />
     <Compile Include="Orders\Order.cs" />
     <Compile Include="Orders\OrderItem .cs" />
+    <Compile Include="Orders\OrdersContainer.cs" />
     <Compile Include="Products\IProductRepository.cs" />
     <Compile Include="Products\IProductsContainer.cs" />
     <Compile Include="Products\Product.cs" />
     <Compile Include="Products\ProductsContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Result.cs" />
+    <Compile Include="Users\IUsersContainer.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\IUserRepository.cs" />
+    <Compile Include="Users\UsersContainer.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
