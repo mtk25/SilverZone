@@ -80,6 +80,9 @@
     <Content Include="includes\bootstrap\js\bootstrap.min.js" />
     <Content Include="Orders\ShippingInformation.aspx" />
     <Content Include="Orders\ShoppingCart.aspx" />
+    <Content Include="Pictures\Capture.JPG" />
+    <Content Include="Pictures\flower.jpg" />
+    <Content Include="Pictures\green-lr.jpg" />
     <Content Include="Products\Default.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

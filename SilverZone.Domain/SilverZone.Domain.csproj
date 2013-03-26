@@ -52,6 +52,7 @@
     <Compile Include="Products\IProductRepository.cs" />
     <Compile Include="Products\IProductsContainer.cs" />
     <Compile Include="Products\Product.cs" />
+    <Compile Include="Products\ProductCategory.cs" />
     <Compile Include="Products\ProductsContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Result.cs" />

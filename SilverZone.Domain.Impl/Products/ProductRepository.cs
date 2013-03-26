@@ -7,12 +7,16 @@ namespace SilverZone.Domain.Impl.Products
 {
     public class ProductRepository: IProductRepository
     {
-        public IList<Product> Get()
+        public IList<Product> Get(int productCategoryId)
         {
             List<Product> products = new List<Product>();
 
             Data.DataContext.UsingContext(
-                ctx => products.AddRange(ctx.Products.AsEnumerable().Select(p => p.ToDomainEntity())));
+                ctx => products.AddRange(
+                    ctx.Products
+                    .Where(x => productCategoryId == 0 || x.ProductCategoryId == productCategoryId)
+                    .AsEnumerable()
+                    .Select(p => p.ToDomainEntity())));
 
             return products;
         }
@@ -24,6 +28,18 @@ namespace SilverZone.Domain.Impl.Products
             Data.DataContext.UsingContext(ctx => product =  ctx.Products.FirstOrDefault(x => x.Id == id).ToDomainEntity());
 
             return product;
+        }
+
+        public IList<ProductCategory> GetCategories()
+        {
+            List<ProductCategory> productCategories = new List<ProductCategory>();
+
+            Data.DataContext.UsingContext(
+                ctx => 
+                    productCategories
+                    .AddRange(ctx.ProductCategories.Select(x => new ProductCategory{ Id = x.Id, Name = x.Name })));
+
+            return productCategories;
         }
     }
 }

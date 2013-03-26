@@ -20,5 +20,6 @@ namespace SilverZone.Domain.Products
         public decimal Price { get; set; }
 
         public bool InStock { get; set; }
+       
     }
 }

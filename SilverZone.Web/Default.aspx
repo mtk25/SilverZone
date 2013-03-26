@@ -2,5 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="Head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>Home</h1>
+ 
+    <img src="Pictures/flower.jpg"/>
+    <img src="Pictures/green-lr.jpg"/>
 </asp:Content>

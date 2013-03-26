@@ -8,6 +8,7 @@
         <EntityContainer Name="SilverZoneModelStoreContainer">
           <EntitySet Name="OrderItems" EntityType="SilverZoneModel.Store.OrderItems" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Orders" EntityType="SilverZoneModel.Store.Orders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductCategories" EntityType="SilverZoneModel.Store.ProductCategories" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Products" EntityType="SilverZoneModel.Store.Products" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ShoppingCartItems" EntityType="SilverZoneModel.Store.ShoppingCartItems" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ShoppingCarts" EntityType="SilverZoneModel.Store.ShoppingCarts" store:Type="Tables" Schema="dbo" />
@@ -23,6 +24,10 @@
           <AssociationSet Name="FK_Orders_Users" Association="SilverZoneModel.Store.FK_Orders_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_ProductCategories" Association="SilverZoneModel.Store.FK_Products_ProductCategories">
+            <End Role="ProductCategories" EntitySet="ProductCategories" />
+            <End Role="Products" EntitySet="Products" />
           </AssociationSet>
           <AssociationSet Name="FK_ShoppingCartItems_Products" Association="SilverZoneModel.Store.FK_ShoppingCartItems_Products">
             <End Role="Products" EntitySet="Products" />
@@ -54,6 +59,13 @@
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
+        <EntityType Name="ProductCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
         <EntityType Name="Products">
           <Key>
             <PropertyRef Name="Id" />
@@ -65,6 +77,7 @@
           <Property Name="Grams" Type="int" Nullable="false" />
           <Property Name="Price" Type="decimal" Nullable="false" Scale="2" />
           <Property Name="InStock" Type="bit" Nullable="false" />
+          <Property Name="ProductCategoryId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ShoppingCartItems">
           <Key>
@@ -125,6 +138,18 @@
             </Principal>
             <Dependent Role="Orders">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_ProductCategories">
+          <End Role="ProductCategories" Type="SilverZoneModel.Store.ProductCategories" Multiplicity="1" />
+          <End Role="Products" Type="SilverZoneModel.Store.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ProductCategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -199,6 +224,11 @@
             <End Role="User" EntitySet="Users" />
             <End Role="ShoppingCart" EntitySet="ShoppingCarts" />
           </AssociationSet>
+          <EntitySet Name="ProductCategories" EntityType="SilverZoneModel.ProductCategory" />
+          <AssociationSet Name="FK_Products_ProductCategories" Association="SilverZoneModel.FK_Products_ProductCategories">
+            <End Role="ProductCategory" EntitySet="ProductCategories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="OrderItem">
           <Key>
@@ -234,6 +264,8 @@
           <NavigationProperty Name="OrderItems" Relationship="SilverZoneModel.FK_OrderItems_Products" FromRole="Products" ToRole="OrderItems" />
           <NavigationProperty Name="ShoppingCartItems" Relationship="SilverZoneModel.FK_ShoppingCartItems_Products" FromRole="Products" ToRole="ShoppingCartItems" />
           <Property Type="Int32" Name="Grams" Nullable="false" />
+          <Property Type="Int32" Name="ProductCategoryId" Nullable="false" />
+          <NavigationProperty Name="ProductCategory" Relationship="SilverZoneModel.FK_Products_ProductCategories" FromRole="Product" ToRole="ProductCategory" />
         </EntityType>
         <EntityType Name="ShoppingCartItem">
           <Key>
@@ -339,6 +371,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ProductCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Products" Relationship="SilverZoneModel.FK_Products_ProductCategories" FromRole="ProductCategory" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_Products_ProductCategories">
+          <End Type="SilverZoneModel.ProductCategory" Role="ProductCategory" Multiplicity="1" />
+          <End Type="SilverZoneModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -367,6 +419,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="SilverZoneModel.Product">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
                 <ScalarProperty Name="Grams" ColumnName="Grams" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SKU" ColumnName="SKU" />
@@ -402,6 +455,14 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductCategories">
+            <EntityTypeMapping TypeName="SilverZoneModel.ProductCategory">
+              <MappingFragment StoreEntitySet="ProductCategories">
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

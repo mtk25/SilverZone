@@ -31,5 +31,6 @@ namespace SilverZone.Domain.Impl.Data
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
     }
 }

@@ -58,6 +58,9 @@
     <Compile Include="Data\Product.cs">
       <DependentUpon>SilverZone.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\ProductCategory.cs">
+      <DependentUpon>SilverZone.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\ShoppingCart.cs">
       <DependentUpon>SilverZone.tt</DependentUpon>
     </Compile>

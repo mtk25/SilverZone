@@ -7,11 +7,9 @@
 
         <h1>Products</h1>
 
-        <asp:DropDownList runat="server" ID="ProductsDropDown">
-            <asp:ListItem>-select-</asp:ListItem>
-            <asp:ListItem>Milk</asp:ListItem>
-
-        </asp:DropDownList>
+        <asp:DropDownList runat="server" ID="ProductCategories" OnSelectedIndexChanged="ProductCategories_SelectedIndexChanged" AutoPostBack="True"/>
+           
+        
 
         <br />
 

@@ -27,7 +27,7 @@
     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="PasswordConfirm"  ErrorMessage="Required field!" />
     <br/>
     <br/>
-    <asp:Button runat="server" ID="Submit" Text="Submit" OnClick="Submit_Click"/>
+    <asp:Button runat="server" ID="Submit" Text="Submit" OnClick="Submit_Click" CssClass="btn btn-success"/>
     
     
     <asp:Literal runat="server" ID="ErrorMessage"/>

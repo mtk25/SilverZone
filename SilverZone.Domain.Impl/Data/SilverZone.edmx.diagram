@@ -17,6 +17,8 @@
         <EntityTypeShape EntityType="SilverZoneModel.User" Width="1.5" PointX="9.625" PointY="3.125" />
         <AssociationConnector Association="SilverZoneModel.FK_Orders_Users" />
         <AssociationConnector Association="SilverZoneModel.FK_ShoppingCarts_Users" />
+        <EntityTypeShape EntityType="SilverZoneModel.ProductCategory" Width="1.5" PointX="2" PointY="6.75" />
+        <AssociationConnector Association="SilverZoneModel.FK_Products_ProductCategories" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

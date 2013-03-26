@@ -27,8 +27,10 @@ namespace SilverZone.Domain.Impl.Data
         public decimal Price { get; set; }
         public bool InStock { get; set; }
         public int Grams { get; set; }
+        public int ProductCategoryId { get; set; }
     
         public virtual ICollection<OrderItem> OrderItems { get; set; }
         public virtual ICollection<ShoppingCartItem> ShoppingCartItems { get; set; }
+        public virtual ProductCategory ProductCategory { get; set; }
     }
 }
