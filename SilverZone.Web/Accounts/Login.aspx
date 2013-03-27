@@ -7,21 +7,28 @@
           <LayoutTemplate>
                 <fieldset>
                     <legend>Log in Form</legend>
-                    <ul>
-                        <li>
-                            <asp:Label ID="Label1" runat="server" AssociatedControlID="UserName">User name</asp:Label>
-                            <asp:TextBox runat="server" ID="UserName" />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="UserName"  ErrorMessage="The user name field is required." />
-                        </li>
-                        <li>
-                            <asp:Label ID="Label2" runat="server" AssociatedControlID="Password">Password</asp:Label>
-                            <asp:TextBox runat="server" ID="Password" TextMode="Password" />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Password"  ErrorMessage="The password field is required." />
-                        </li>
-                    </ul>
-                    <asp:Button ID="Button1" runat="server" CommandName="Login" Text="Log in" />
+                    <form class="form-horizontal">
+                        <div class="control-group">
+                            <asp:Label ID="Label1" runat="server" AssociatedControlID="UserName" CssClass="control-label">User name</asp:Label>
+                            <div class="controls">
+                                <asp:TextBox runat="server" ID="UserName" placeholder="Username" CssClass="input-small" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="UserName" ErrorMessage="The user name field is required." />
+                                <div />
+                            </div>
+                            <div class="control-group">
+                                <asp:Label ID="Label2" runat="server" AssociatedControlID="Password" CssClass="control-label">Password</asp:Label>
+                                <div class="controls">
+                                    <asp:TextBox runat="server" ID="Password" TextMode="Password" placeholder="Password" CssClass="input-small" />
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Password" ErrorMessage="The password field is required." />
+                                </div>
+                            </div>
+                            <div class="controls">
+                                <asp:Button ID="Button1" runat="server" CommandName="Login" Text="Log in" CssClass="btn btn-success" />
+                            </div>
+                    </form>
                 </fieldset>
             </LayoutTemplate>
+
 
     </asp:Login>
    
