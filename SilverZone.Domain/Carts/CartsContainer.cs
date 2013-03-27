@@ -4,10 +4,12 @@
     {
         public ICartRepository Repository { get; private set; }
 
-        public CartsContainer(ICartRepository repository)
+        public ICartService Service { get; private set; }
+
+        public CartsContainer(ICartRepository repository, ICartService service)
         {
             Repository = repository;
+            Service = service;
         }
-         
     }
 }

@@ -191,6 +191,10 @@
       <Project>{e06b168e-f40d-441a-98c9-194efa009a5f}</Project>
       <Name>SilverZone.Domain.Impl</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SilverZone.Domain.Mock\SilverZone.Domain.Mock.csproj">
+      <Project>{5b284e8b-1654-4d18-b457-78fcac96de95}</Project>
+      <Name>SilverZone.Domain.Mock</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SilverZone.Domain\SilverZone.Domain.csproj">
       <Project>{bf2294bd-fe69-461d-bbb0-666529c29989}</Project>
       <Name>SilverZone.Domain</Name>

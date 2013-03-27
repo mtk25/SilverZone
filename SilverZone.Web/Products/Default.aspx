@@ -8,7 +8,7 @@
     <div class="span8">
          <asp:DropDownList runat="server" ID="ProductCategories" OnSelectedIndexChanged="ProductCategories_SelectedIndexChanged" AutoPostBack="True" />
     
-    <asp:Repeater runat="server" ID="Products" OnItemDataBound="Products_ItemDataBound">
+    <asp:Repeater runat="server" ID="Products" OnItemDataBound="Products_ItemDataBound" OnItemCommand="Products_ItemCommand">
         <HeaderTemplate>
             <table class="table table-striped table-bordered table-hover">
                 <thead>
@@ -40,7 +40,7 @@
                     <asp:TextBox runat="server" ID="Quantity" Width="30px" />
                 </td>
                 <td>
-                    <asp:Button runat="server" ID="AddToCart" Text="Add to cart" CssClass="btn btn-success" />
+                    <asp:Button runat="server" ID="Add" Text="Add to cart" CssClass="btn btn-success" CommandName="Add" />
                 </td>
 
             </tr>

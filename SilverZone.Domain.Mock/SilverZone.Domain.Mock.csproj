@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A0F41992-1E81-44B7-B4C5-5DD8390EC995}</ProjectGuid>
+    <ProjectGuid>{5B284E8B-1654-4D18-B457-78FCAC96DE95}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SilverZone.Domain.Mock</RootNamespace>
@@ -39,9 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Carts\CartRepository.cs" />
-    <Compile Include="Orders\OrderRepository.cs" />
-    <Compile Include="Products\ProductRepository.cs" />
+    <Compile Include="Carts\CartService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -49,9 +47,6 @@
       <Project>{bf2294bd-fe69-461d-bbb0-666529c29989}</Project>
       <Name>SilverZone.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Users\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

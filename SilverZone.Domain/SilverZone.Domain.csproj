@@ -44,6 +44,7 @@
     <Compile Include="Carts\CartsContainer.cs" />
     <Compile Include="Carts\ICartRepository.cs" />
     <Compile Include="Carts\ICartsContainer.cs" />
+    <Compile Include="Carts\ICartService.cs" />
     <Compile Include="Orders\IOrderRepository.cs" />
     <Compile Include="Orders\IOrdersContainer.cs" />
     <Compile Include="Orders\Order.cs" />

@@ -1,4 +1,7 @@
-﻿using Microsoft.Practices.Unity;
+﻿
+using System.Web;
+using System.Web.Security;
+using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using SilverZone.Domain.Carts;
 using SilverZone.Domain.Orders;
@@ -40,6 +43,19 @@ namespace SilverZone.Web.Framework.Contexts
             get
             {
                 return Container.Resolve<IOrdersContainer>();
+            }
+        }
+
+        public static  User CurrentUser 
+        {
+            get
+            {
+                User user = null;
+                if (HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    user = Users.Repository.Get(HttpContext.Current.User.Identity.Name);
+                }
+                return user;
             }
         }
 

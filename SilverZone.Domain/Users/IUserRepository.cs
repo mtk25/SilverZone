@@ -10,6 +10,9 @@ namespace SilverZone.Domain.Users
        // get user by id
        User Get(Guid id);
 
+       User Get(string username);
+
        Result Delete(User user);
+       
     }
 }

@@ -2,6 +2,8 @@
 {
     public interface ICartsContainer
     {
-        ICartRepository Repository { get; } 
+        ICartRepository Repository { get; }
+
+        ICartService Service { get; }
     }
 }

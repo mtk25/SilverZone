@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web.UI.WebControls;
+using SilverZone.Domain.Carts;
 using SilverZone.Domain.Products;
 using SilverZone.Web.Framework.Contexts;
 
@@ -65,6 +66,10 @@ namespace SilverZone.Web.Products
                     Literal inStock = (Literal)e.Item.FindControl("InStock");
                     inStock.Text = product.InStock.ToString();
 
+                    Button add = (Button) e.Item.FindControl("Add");
+                    add.CommandArgument = product.Id.ToString();
+
+
                 }
             }
         }
@@ -74,6 +79,29 @@ namespace SilverZone.Web.Products
             LoadProducts();
         }
 
+        protected void Products_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            switch (e.CommandName)
+            {
+                case "Add":
+                    Guid productId;
+                    Guid.TryParse(e.CommandArgument.ToString(),out productId);
+
+                    // add product to cart
+                   var cart =  DomainContext.Carts.Service.GetCart(DomainContext.CurrentUser.Id);
+                    cart.Items.Add(new CartItem
+                        {
+                            CartId = Guid.Empty,
+                            ProductId = productId,
+                            Quantity = 1
+
+                        });
+                    break;
+
+            }
+        }
+
+       
        
     }
 }

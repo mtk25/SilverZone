@@ -63,6 +63,15 @@ namespace SilverZone.Domain.Impl.Users
             return user;
         }
 
+        public User Get(string username)
+        {
+            User user = null;
+
+            Data.DataContext.UsingContext(ctx => user = ctx.Users.FirstOrDefault(x => x.UserName == username).ToDomainEntity());
+
+            return user;
+        }
+
         public Result Delete(User user)
         {
             if (user == null)

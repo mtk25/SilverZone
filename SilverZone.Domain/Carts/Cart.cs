@@ -7,8 +7,13 @@ namespace SilverZone.Domain.Carts
     {
         public Guid Id { get; set; }
 
-        public List<CartItem> Items { get; set; }
+        public List<CartItem> Items { get; private set; }
 
         public Guid UserId { get; set; }
+
+        public Cart()
+        {
+            Items = new List<CartItem>();
+        }
     }
 }

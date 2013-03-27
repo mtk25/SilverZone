@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SilverZone.Domain.Impl", "S
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{F7FFD24B-FF7C-452E-B5CA-84A53F0B9A87}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SilverZone.Domain.Mock", "SilverZone.Domain.Mock\SilverZone.Domain.Mock.csproj", "{5B284E8B-1654-4D18-B457-78FCAC96DE95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,13 +29,18 @@ Global
 		{E06B168E-F40D-441A-98C9-194EFA009A5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E06B168E-F40D-441A-98C9-194EFA009A5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E06B168E-F40D-441A-98C9-194EFA009A5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B284E8B-1654-4D18-B457-78FCAC96DE95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B284E8B-1654-4D18-B457-78FCAC96DE95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B284E8B-1654-4D18-B457-78FCAC96DE95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B284E8B-1654-4D18-B457-78FCAC96DE95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{BF2294BD-FE69-461D-BBB0-666529C29989} = {F7FFD24B-FF7C-452E-B5CA-84A53F0B9A87}
 		{E06B168E-F40D-441A-98C9-194EFA009A5F} = {F7FFD24B-FF7C-452E-B5CA-84A53F0B9A87}
+		{BF2294BD-FE69-461D-BBB0-666529C29989} = {F7FFD24B-FF7C-452E-B5CA-84A53F0B9A87}
+		{5B284E8B-1654-4D18-B457-78FCAC96DE95} = {F7FFD24B-FF7C-452E-B5CA-84A53F0B9A87}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35
