@@ -1,0 +1,9 @@
+﻿body {
+    background-image: url("Images/theme.jpg");
+
+}
+
+.login-box {
+    padding-top: 10px;
+    float: right;
+}

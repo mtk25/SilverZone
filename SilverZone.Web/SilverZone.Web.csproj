@@ -70,6 +70,26 @@
     <Content Include="Accounts\Login.aspx" />
     <Content Include="Accounts\Registration.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="galleria\galleria-1.2.9.js" />
+    <Content Include="galleria\galleria-1.2.9.min.js" />
+    <Content Include="galleria\plugins\flickr\flickr-demo.html" />
+    <Content Include="galleria\plugins\flickr\flickr-loader.gif" />
+    <Content Include="galleria\plugins\flickr\galleria.flickr.js" />
+    <Content Include="galleria\plugins\flickr\galleria.flickr.min.js" />
+    <Content Include="galleria\plugins\flickr\loader.gif" />
+    <Content Include="galleria\plugins\history\galleria.history.js" />
+    <Content Include="galleria\plugins\history\galleria.history.min.js" />
+    <Content Include="galleria\plugins\history\history-demo.html" />
+    <Content Include="galleria\plugins\picasa\galleria.picasa.js" />
+    <Content Include="galleria\plugins\picasa\galleria.picasa.min.js" />
+    <Content Include="galleria\plugins\picasa\loader.gif" />
+    <Content Include="galleria\plugins\picasa\picasa-demo.html" />
+    <Content Include="galleria\themes\classic\classic-demo.html" />
+    <Content Include="galleria\themes\classic\classic-loader.gif" />
+    <Content Include="galleria\themes\classic\classic-map.png" />
+    <Content Include="galleria\themes\classic\galleria.classic.css" />
+    <Content Include="galleria\themes\classic\galleria.classic.js" />
+    <Content Include="galleria\themes\classic\galleria.classic.min.js" />
     <Content Include="includes\bootstrap\css\bootstrap-responsive.css" />
     <Content Include="includes\bootstrap\css\bootstrap-responsive.min.css" />
     <Content Include="includes\bootstrap\css\bootstrap.css" />
@@ -80,10 +100,12 @@
     <Content Include="includes\bootstrap\js\bootstrap.min.js" />
     <Content Include="Orders\ShippingInformation.aspx" />
     <Content Include="Orders\ShoppingCart.aspx" />
-    <Content Include="Pictures\Capture.JPG" />
-    <Content Include="Pictures\flower.jpg" />
-    <Content Include="Pictures\green-lr.jpg" />
+    <Content Include="Pictures\Home\cheese.jpg" />
+    <Content Include="Pictures\Home\green_tea.jpg" />
+    <Content Include="Pictures\Home\chocolate.jpg" />
+    <Content Include="Pictures\Home\wine_and_cheese.jpg" />
     <Content Include="Products\Default.aspx" />
+    <Content Include="Styles\Images\theme.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -155,6 +177,8 @@
     </Content>
     <Content Include="packages.config" />
     <Content Include="App_Config\Unity.config" />
+    <Content Include="galleria\LICENSE" />
+    <Content Include="Styles\silverzone.common.css" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -172,6 +196,7 @@
       <Name>SilverZone.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -1,4 +1,10 @@
+
+.svn
+bin/
+obj/
+Debug/
+Release/
 *.suo
-*/bin/*
-*/obj/*
-*.csproj.user
+*.pdb
+*.user
+_Resharper*

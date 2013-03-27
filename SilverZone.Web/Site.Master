@@ -2,48 +2,55 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head runat="server">
     <title>SilverZone</title>
     <asp:ContentPlaceHolder ID="Head" runat="server">
     </asp:ContentPlaceHolder>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Bootstrap -->
-    <link href="~/includes/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="~/includes/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen" />
+    <link href="~/includes/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen" />
+    <link href="~/Styles/silverzone.common.css" rel="stylesheet" media="screen" />
     
 </head>
-
 <body>
-    <form id="form1" runat="server">
-            <div class="navbar">
+        <form id="form1" runat="server">
+            <div class="navbar navbar-static-top">
                 <div class="navbar-inner">
-                    <%--<img src="http://www.logomaker.com/logo-images/3bb8df512832bdab.gif"/>--%>
-                    <a class="brand" href="#">SilverZone</a>
-                    <ul class="nav">
-                        <li class="active"><a href="/">Home</a></li>
-                        <li><a href="/Products/">Products</a></li>
-                    </ul>
-                    <asp:LoginView runat="server">
-                        <AnonymousTemplate>
-                            <a href="/Accounts/Login.aspx">Login</a> /
+                    <div class="container">
+                        <a class="brand" href="/">SilverZone</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/Products/">Products</a></li>
+                            </ul>
+                        </div>
+                        <div class="login-box">
+                            <asp:LoginView runat="server">
+                                <AnonymousTemplate>
+                                    <a href="/Accounts/Login.aspx">Login</a> /
                             <a href="/Accounts/Registration.aspx">Register</a>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            Welcome <asp:LoginName runat="server"/>
-                            <asp:LoginStatus id="LoginStatus1" runat="server"
-                                     LogoutAction="Redirect" LogoutPageUrl="/" />
-                        </LoggedInTemplate>
-
-                    </asp:LoginView>
+                                </AnonymousTemplate>
+                                <LoggedInTemplate>
+                                    Welcome
+                            <asp:LoginName runat="server" />
+                                    <asp:LoginStatus ID="LoginStatus1" runat="server"
+                                        LogoutAction="Redirect" LogoutPageUrl="/" />
+                                </LoggedInTemplate>
+                            </asp:LoginView>
+                        </div>
+                    </div>
+                   
                 </div>
             </div>
-       
-        <div>
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-    </form>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="~/includes/bootstrap/js/bootstrap.min.js"></script>
+
+            <div class="container">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </form>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="~/includes/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
