@@ -51,13 +51,32 @@ namespace SilverZone.Web.Framework.Contexts
             get
             {
                 User user = null;
+
                 if (HttpContext.Current.User.Identity.IsAuthenticated)
                 {
                     user = Users.Repository.Get(HttpContext.Current.User.Identity.Name);
                 }
+
                 return user;
             }
         }
+
+        public static Cart CurrentCart
+        {
+            get
+            { 
+                Cart cart = null;
+                User user = CurrentUser;
+
+                if (user != null)
+                {
+                    cart = Carts.Service.GetCart(user.Id);
+                }
+
+                return cart;
+            }
+        }
+
 
 
         static DomainContext()

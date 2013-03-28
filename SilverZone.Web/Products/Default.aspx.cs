@@ -68,8 +68,6 @@ namespace SilverZone.Web.Products
 
                     Button add = (Button) e.Item.FindControl("Add");
                     add.CommandArgument = product.Id.ToString();
-
-
                 }
             }
         }
@@ -88,7 +86,12 @@ namespace SilverZone.Web.Products
                     Guid.TryParse(e.CommandArgument.ToString(),out productId);
 
                     // add product to cart
-                   var cart =  DomainContext.Carts.Service.GetCart(DomainContext.CurrentUser.Id);
+                   var cart =  DomainContext.CurrentCart;
+
+                     //TODO add quantity if product is already in cart 
+                    // if true increment quantity 
+
+                    // else
                     cart.Items.Add(new CartItem
                         {
                             CartId = Guid.Empty,

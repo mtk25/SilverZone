@@ -13,15 +13,6 @@ namespace SilverZone.Web.Orders {
     public partial class ShoppingCart {
         
         /// <summary>
-        /// CartId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal CartId;
-        
-        /// <summary>
         /// ShippingInformationLink control.
         /// </summary>
         /// <remarks>
@@ -29,5 +20,14 @@ namespace SilverZone.Web.Orders {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink ShippingInformationLink;
+        
+        /// <summary>
+        /// CartItems control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater CartItems;
     }
 }
