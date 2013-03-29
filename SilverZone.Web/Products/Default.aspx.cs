@@ -46,7 +46,7 @@ namespace SilverZone.Web.Products
             Products.DataBind();
         }
 
-        protected void Products_ItemDataBound(object sender, System.Web.UI.WebControls.RepeaterItemEventArgs e)
+        protected void Products_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
@@ -85,26 +85,54 @@ namespace SilverZone.Web.Products
                     Guid productId;
                     Guid.TryParse(e.CommandArgument.ToString(),out productId);
 
-                    // add product to cart
-                   var cart =  DomainContext.CurrentCart;
+                    TextBox txtQuantity = (TextBox)e.Item.FindControl("Quantity");
+                    int quantity;
+                    int.TryParse(txtQuantity.Text,out quantity);
 
-                     //TODO add quantity if product is already in cart 
-                    // if true increment quantity 
-
-                    // else
-                    cart.Items.Add(new CartItem
+                    if (quantity > 0)
+                    {
+                        Product product = DomainContext.Products.Repository.Get(productId);
+                        
+                        if (product != null)
                         {
-                            CartId = Guid.Empty,
-                            ProductId = productId,
-                            Quantity = 1
+                            var cart = DomainContext.CurrentCart;
+                            
+                            CartItem item = cart.Items.FirstOrDefault(x => x.ProductId == productId);
 
-                        });
+                            if (item != null)
+                            {
+                                item.Quantity += quantity;
+                            }
+                            else
+                            {
+                                cart.Items.Add(new CartItem
+                                    {
+                                        CartId = Guid.Empty,
+                                        ProductId = productId,
+                                        Quantity = quantity,
+                                        ProductPrice = product.Price
+                                    });
+                            }
+
+                            UpdateNavigationCart();
+                        }
+                    }
                     break;
-
+                    
             }
         }
 
-       
-       
+        private void UpdateNavigationCart()
+        {
+            MasterPage master = Master as MasterPage;
+
+            if (master != null)
+            {
+                master.NavigationCart.DisplayCart();
+            }
+        }
+
+         
+
     }
 }

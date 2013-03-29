@@ -7,27 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SilverZone.Web.Orders {
+namespace SilverZone.Web.ShoppingCart.Controls {
     
     
-    public partial class ShoppingCart {
+    public partial class NavCart {
         
         /// <summary>
-        /// ShippingInformationLink control.
+        /// ItemCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ShippingInformationLink;
+        protected global::System.Web.UI.WebControls.Literal ItemCount;
         
         /// <summary>
-        /// CartItems control.
+        /// Total control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater CartItems;
+        protected global::System.Web.UI.WebControls.Literal Total;
     }
 }

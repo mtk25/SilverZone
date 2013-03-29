@@ -5,5 +5,13 @@
 
 .login-box {
     padding-top: 10px;
-    float: right;
+    float: left;
 }
+
+.shopping-cart {
+    float: left;
+}
+
+    .shopping-cart img {
+        height: 30px;
+    }

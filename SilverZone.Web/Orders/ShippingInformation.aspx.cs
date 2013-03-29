@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Web.UI.WebControls;
 
 namespace SilverZone.Web.Orders
@@ -23,7 +22,6 @@ namespace SilverZone.Web.Orders
 
         public void GetYear()
         {
-            int count=0;
             const int start = 2013;
             
             for (int i = start; i < 2021; i++)

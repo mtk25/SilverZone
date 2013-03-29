@@ -8,9 +8,6 @@
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
- 
-
-   
         <div id="galleria">
             <img src="Pictures/Home/cheese.jpg" />
             <img src="Pictures/Home/chocolate.jpg" />

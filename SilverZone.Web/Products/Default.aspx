@@ -37,7 +37,7 @@
                     <asp:Literal runat="server" ID="InStock" />
                 </td>
                 <td>
-                    <asp:TextBox runat="server" ID="Quantity" Width="30px" />
+                    <asp:TextBox runat="server" ID="Quantity" Width="30px">1</asp:TextBox>
                 </td>
                 <td>
                     <asp:Button runat="server" ID="Add" Text="Add to cart" CssClass="btn btn-success" CommandName="Add" />

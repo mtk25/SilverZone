@@ -3,10 +3,9 @@ using System.Web.UI.WebControls;
 using SilverZone.Domain.Carts;
 using SilverZone.Web.Framework.Contexts;
 
-
-namespace SilverZone.Web.Orders
+namespace SilverZone.Web.ShoppingCart
 {
-    public partial class ShoppingCart : System.Web.UI.Page
+    public partial class Default : System.Web.UI.Page
     {
         private Cart _cart;
         public Cart Cart
@@ -38,7 +37,7 @@ namespace SilverZone.Web.Orders
 
 
 
-        protected void CartItems_ItemDataBound(object sender, System.Web.UI.WebControls.RepeaterItemEventArgs e)
+        protected void CartItems_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {

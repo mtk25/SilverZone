@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ShoppingCart.aspx.cs" Inherits="SilverZone.Web.Orders.ShoppingCart" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="SilverZone.Web.ShoppingCart.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -47,6 +47,6 @@
         </FooterTemplate>
     </asp:Repeater>
 
-   
+   <asp:Button runat="server" ID="CheckOut" Text="Proceed to checkout" CssClass="btn btn-success"/>
 </asp:Content>
 

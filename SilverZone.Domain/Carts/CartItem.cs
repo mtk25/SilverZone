@@ -9,5 +9,11 @@ namespace SilverZone.Domain.Carts
         public Guid ProductId { get; set; }
 
         public int Quantity { get; set; }
+
+        public decimal ProductPrice { get; set; }
+
+        public decimal Total {
+            get { return ProductPrice*Quantity; }
+        }
     }
 }

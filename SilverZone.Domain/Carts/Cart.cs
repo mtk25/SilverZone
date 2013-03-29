@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SilverZone.Domain.Carts
 {
@@ -7,7 +8,15 @@ namespace SilverZone.Domain.Carts
     {
         public Guid Id { get; set; }
 
-        public List<CartItem> Items { get; private set; }
+        public List<CartItem> Items { get; private set; } 
+
+        public decimal Total 
+        {
+            get 
+            { 
+               return Items.Sum(x => x.Total);
+            }
+        }
 
         public Guid UserId { get; set; }
 
@@ -15,5 +24,7 @@ namespace SilverZone.Domain.Carts
         {
             Items = new List<CartItem>();
         }
+
+        
     }
 }
