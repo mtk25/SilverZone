@@ -20,10 +20,13 @@ namespace SilverZone.Web.ShoppingCart.Controls
         {
            Cart cart = DomainContext.CurrentCart;
 
+           if (cart != null)
+           {
+               ItemCount.Text = cart.Items.Sum(x => x.Quantity).ToString();
 
-            ItemCount.Text = cart.Items.Sum(x => x.Quantity).ToString();
+               Total.Text = string.Format(Total.Text, cart.Total);
+           }
 
-            Total.Text = string.Format(Total.Text, cart.Total);
         }
     }
 }

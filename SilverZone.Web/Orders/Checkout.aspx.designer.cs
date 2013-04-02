@@ -10,7 +10,7 @@
 namespace SilverZone.Web.Orders {
     
     
-    public partial class ShippingInformation {
+    public partial class Checkout {
         
         /// <summary>
         /// FirstNameShippingInfo control.
@@ -19,16 +19,16 @@ namespace SilverZone.Web.Orders {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FirstNameShippingInfo;
+        protected global::System.Web.UI.WebControls.TextBox FirstNameShippingInfo;
         
         /// <summary>
-        /// TextBox1 control.
+        /// FirstNamedValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator FirstNamedValidator;
         
         /// <summary>
         /// LastNameShippingInfo control.
@@ -37,16 +37,16 @@ namespace SilverZone.Web.Orders {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LastNameShippingInfo;
+        protected global::System.Web.UI.WebControls.TextBox LastNameShippingInfo;
         
         /// <summary>
-        /// TextBox2 control.
+        /// LastNameValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator LastNameValidator;
         
         /// <summary>
         /// Address control.
@@ -55,25 +55,25 @@ namespace SilverZone.Web.Orders {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Address;
+        protected global::System.Web.UI.WebControls.TextBox Address;
         
         /// <summary>
-        /// Line1 control.
+        /// AddressValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Line1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator AddressValidator1;
         
         /// <summary>
-        /// Line2 control.
+        /// AddressLine2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Line2;
+        protected global::System.Web.UI.WebControls.TextBox AddressLine2;
         
         /// <summary>
         /// City control.
@@ -82,16 +82,16 @@ namespace SilverZone.Web.Orders {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label City;
+        protected global::System.Web.UI.WebControls.TextBox City;
         
         /// <summary>
-        /// TextBox4 control.
+        /// CityValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator CityValidator;
         
         /// <summary>
         /// State control.
@@ -100,16 +100,16 @@ namespace SilverZone.Web.Orders {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label State;
+        protected global::System.Web.UI.WebControls.TextBox State;
         
         /// <summary>
-        /// TextBox5 control.
+        /// StateValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator StateValidator;
         
         /// <summary>
         /// Country control.
@@ -118,16 +118,16 @@ namespace SilverZone.Web.Orders {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Country;
+        protected global::System.Web.UI.WebControls.TextBox Country;
         
         /// <summary>
-        /// TextBox6 control.
+        /// CountryValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox6;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator CountryValidator;
         
         /// <summary>
         /// ZipCode control.
@@ -136,16 +136,16 @@ namespace SilverZone.Web.Orders {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ZipCode;
+        protected global::System.Web.UI.WebControls.TextBox ZipCode;
         
         /// <summary>
-        /// TextBox7 control.
+        /// ZipCodeValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox7;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ZipCodeValidator;
         
         /// <summary>
         /// FirstName control.
@@ -154,16 +154,16 @@ namespace SilverZone.Web.Orders {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FirstName;
+        protected global::System.Web.UI.WebControls.TextBox FirstName;
         
         /// <summary>
-        /// Name control.
+        /// FirstNameValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Name;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator FirstNameValidator;
         
         /// <summary>
         /// LastName control.
@@ -172,16 +172,16 @@ namespace SilverZone.Web.Orders {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LastName;
+        protected global::System.Web.UI.WebControls.TextBox LastName;
         
         /// <summary>
-        /// Name2 control.
+        /// LastNameValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Name2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator LastNameValidator1;
         
         /// <summary>
         /// Card control.
@@ -190,16 +190,7 @@ namespace SilverZone.Web.Orders {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Card;
-        
-        /// <summary>
-        /// CardType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CardType;
+        protected global::System.Web.UI.WebControls.DropDownList Card;
         
         /// <summary>
         /// CardNumber control.
@@ -208,16 +199,16 @@ namespace SilverZone.Web.Orders {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CardNumber;
+        protected global::System.Web.UI.WebControls.TextBox CardNumber;
         
         /// <summary>
-        /// Number control.
+        /// CardNumberValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Number;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator CardNumberValidator;
         
         /// <summary>
         /// Expiration control.
@@ -253,16 +244,16 @@ namespace SilverZone.Web.Orders {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label SecurityCode;
+        protected global::System.Web.UI.WebControls.TextBox SecurityCode;
         
         /// <summary>
-        /// Code control.
+        /// SecurityCodeValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Code;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator SecurityCodeValidator;
         
         /// <summary>
         /// ShippingAddress control.
@@ -283,12 +274,12 @@ namespace SilverZone.Web.Orders {
         protected global::System.Web.UI.WebControls.CheckBox ShippingAddressConfirm;
         
         /// <summary>
-        /// Continue control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Continue;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

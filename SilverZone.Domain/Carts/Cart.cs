@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SilverZone.Domain.Common;
 
 namespace SilverZone.Domain.Carts
 {
@@ -25,6 +26,10 @@ namespace SilverZone.Domain.Carts
             Items = new List<CartItem>();
         }
 
-        
+        public ShippingInfo ShippingInfo { get; set; }
+
+        public PaymentInfo PaymentInfo { get; set; }
+
+
     }
 }

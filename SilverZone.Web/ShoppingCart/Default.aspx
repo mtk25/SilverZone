@@ -47,6 +47,6 @@
         </FooterTemplate>
     </asp:Repeater>
 
-   <asp:Button runat="server" ID="CheckOut" Text="Proceed to checkout" CssClass="btn btn-success"/>
+   <asp:Button runat="server" ID="CheckOut" Text="Proceed to checkout" CssClass="btn btn-success" OnClick="CheckOut_Click"/>
 </asp:Content>
 

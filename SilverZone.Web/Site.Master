@@ -13,7 +13,7 @@
     <link href="~/includes/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen" />
     <link href="~/includes/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen" />
     <link href="~/Styles/silverzone.common.css" rel="stylesheet" media="screen" />
-    
+     
 </head>
 <body>
         <form id="form1" runat="server">
@@ -35,18 +35,33 @@
                             <div class="login-box">
                                 <asp:LoginView runat="server">
                                     <AnonymousTemplate>
-                                        <a href="/Accounts/Login.aspx">Login</a> /
-                            <a href="/Accounts/Registration.aspx">Register</a>
+                                         <a href="/Accounts/Login.aspx">Login</a> /
+                                         <a href="/Accounts/Registration.aspx">Register</a>
                                     </AnonymousTemplate>
                                     <LoggedInTemplate>
-                                        Welcome
-                            <asp:LoginName runat="server" />
+                                        <div class="btn-group">
+                                            <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                                Hello,
+                                                <asp:LoginName ID="LoginName1" runat="server" CssClass="username" />
+                                                <br/>
+                                                <span>My Account</span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="/Orders/Order.aspx">My Orders</a></li>
+                                            </ul>
+                                        </div>
+                                        
+
                                         <asp:LoginStatus ID="LoginStatus1" runat="server"
                                             LogoutAction="Redirect" LogoutPageUrl="/" />
                                     </LoggedInTemplate>
                                 </asp:LoginView>
                             </div>
+                               
                         </div>
+                        
+                        
+
                     </div>
                    
                 </div>
@@ -58,6 +73,6 @@
             </div>
         </form>
         <script src="http://code.jquery.com/jquery-latest.js"></script>
-        <script src="~/includes/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/includes/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

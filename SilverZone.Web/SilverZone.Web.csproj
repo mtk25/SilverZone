@@ -98,7 +98,9 @@
     <Content Include="includes\bootstrap\img\glyphicons-halflings.png" />
     <Content Include="includes\bootstrap\js\bootstrap.js" />
     <Content Include="includes\bootstrap\js\bootstrap.min.js" />
-    <Content Include="Orders\ShippingInformation.aspx" />
+    <Content Include="Orders\Order.aspx" />
+    <Content Include="Orders\OrderSummary.aspx" />
+    <Content Include="Orders\Checkout.aspx" />
     <Content Include="ShoppingCart\Default.aspx" />
     <Content Include="Pictures\cart.png" />
     <Content Include="Pictures\Home\cheese.jpg" />
@@ -135,12 +137,26 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Framework\Contexts\DomainContext.cs" />
-    <Compile Include="Orders\ShippingInformation.aspx.cs">
-      <DependentUpon>ShippingInformation.aspx</DependentUpon>
+    <Compile Include="Orders\Order.aspx.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Orders\ShippingInformation.aspx.designer.cs">
-      <DependentUpon>ShippingInformation.aspx</DependentUpon>
+    <Compile Include="Orders\Order.aspx.designer.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\OrderSummary.aspx.cs">
+      <DependentUpon>OrderSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Orders\OrderSummary.aspx.designer.cs">
+      <DependentUpon>OrderSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Orders\Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="ShoppingCart\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

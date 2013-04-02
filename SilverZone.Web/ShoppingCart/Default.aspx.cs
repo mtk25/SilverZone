@@ -64,6 +64,11 @@ namespace SilverZone.Web.ShoppingCart
 
         }
 
+        protected void CheckOut_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Orders/Checkout.aspx");
+        }
+
 
     }
 }

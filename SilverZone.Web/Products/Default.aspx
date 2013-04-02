@@ -13,7 +13,7 @@
             <table class="table table-striped table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th>Product</th>
+                        <th>Brand</th>
                         <th>Price</th>
                         <th>Weight</th>
                         <th>In Stock</th>

@@ -4,9 +4,12 @@
 }
 
 .login-box {
-    padding-top: 10px;
     float: left;
 }
+
+    .login-box .username {
+        color: #A4C55C;
+    }
 
 .shopping-cart {
     float: left;
@@ -15,3 +18,4 @@
     .shopping-cart img {
         height: 30px;
     }
+
